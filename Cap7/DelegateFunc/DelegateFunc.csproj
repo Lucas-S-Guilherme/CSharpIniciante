@@ -3,7 +3,6 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
-    <RootNamespace>MÉTODO_DE_EXTENSÃO__DICIONÁRIOS__PARÂMETROS_OPCIONAIS_E_DELEGATES</RootNamespace>    
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
