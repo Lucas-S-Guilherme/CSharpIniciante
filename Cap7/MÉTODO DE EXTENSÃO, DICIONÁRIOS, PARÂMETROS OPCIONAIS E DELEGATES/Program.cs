@@ -1,107 +1,64 @@
 ﻿using System.Runtime.CompilerServices;
 using static System.Console;
 
-// Métodos de extensão
-// WriteLine(DateTime.Today.FormatarData("dd/MMM/yyyy"));
-// WriteLine(DateTime.Today.FormatarData("dddd dd/MMM/yyyy"));
-// WriteLine(DateTime.Today.FormatarData("MMMM yyyy"));
-// WriteLine(DateTime.Today.FormatarData("yyyy"));
+System.Console.WriteLine("O que você quer testar?" + 
+"\n 1 - Métodos de extensão" +
+"\n 2 - Métodos com Parâmetros opcionais" +
+"\n 3 - Dicionário" +
+"\n 4 - Delegate Func <>" +
+"\n\n Digite uma opção");
 
-// decimal valor = 5800.78M;
-// WriteLine(valor.Formatar("R$ ##,##0.00"));
-// WriteLine($"{4578.87M.Formatar("C2")}");
-// WriteLine(4578.87M.Formatar("C2"));
+int opcao;
+opcao = Convert.ToInt32(Console.ReadLine());
 
-// // Parâmetros opcionais
-// WriteLine("Parâmetros Opcionais");
-// WriteLine(ParametrosOpcionais.Faturamento(500, 5, 10));
-// WriteLine("Parâmetros 1 e 2");
-// WriteLine(ParametrosOpcionais.Faturamento(500, 12));
-// WriteLine("Parâmetros 3 e 4");
-// WriteLine(ParametrosOpcionais.Faturamento(50, 10));
 
-// Dicionários
+switch (opcao) {
+    case 1:
+        System.Console.WriteLine("Métodos de extensão");
+        WriteLine(DateTime.Today.FormatarData("dd/MMM/yyyy"));
+        WriteLine(DateTime.Today.FormatarData("dddd dd/MMM/yyyy"));
+        WriteLine(DateTime.Today.FormatarData("MMMM yyyy"));
+        WriteLine(DateTime.Today.FormatarData("yyyy"));
 
-WriteLine("--- Uso de Dicionários ---");
-var sexo = new Dictionary<string, string>
-{
-    { "M", "Masculino" },
-    { "F", "Feminino" }
-};
-WriteLine(sexo["F"]);
+        decimal valor = 5800.78M;
+        WriteLine(valor.Formatar("R$ ##,##0.00"));
+        WriteLine($"{4578.87M.Formatar("C2")}");
+        WriteLine(4578.87M.Formatar("C2"));
+        break;
 
-var cidades = new Dictionary<string, string> {
-    ["MG"] = "Minas Gerais",
-    ["SC"] = "Santa Catarina",
-    ["SP"] = "São Paulo",
-    ["RS"] = "Rio Grande do Sul"
-};
+    case 2:
 
-WriteLine($"--- Dicionário com  {cidades.Count()} Cidades ---");
-WriteLine(cidades["MG"]);
-//WriteLine(cidades[“mg”]); // gera erro
-//WriteLine(cidades[0]); // erro compilação
+        System.Console.WriteLine("Parâmetros opcionais");    
+        WriteLine("Parâmetros Opcionais");
+        WriteLine(ParametrosOpcionais.Faturamento(500, 5, 10));
+        WriteLine("Parâmetros 1 e 2");
+        WriteLine(ParametrosOpcionais.Faturamento(500, 12));
+        WriteLine("Parâmetros 1 e 3");
+        //no caso abaixo, como eu queria "pular" o 2 parâmetro opcional, escrevi o nome do terceiro e atribui o valor
+        WriteLine(ParametrosOpcionais.Faturamento(50, bonus: 10));
+        break;
 
-foreach (var cidade in cidades){
-    WriteLine($"sigla: {cidade.Key} - {cidade.Value}");
+    case 3:
+            // Dicionários
+            DicionarioMeu.ExecutaDicionarios();
+        
+        break;
+
+    case 4:    
+    DelegateFuncTest.ExecutaODelegateMeu();
+
+    break;
+    
+
 }
 
-WriteLine("--- dicionário Países ---");
-var paises = new Dictionary<int, string>{
-    [100] = "Brasil",
-    [2] = "Australia",
-    [60] = "Nova Zelandia"
-};
 
-foreach (var pais in paises)
-{
-WriteLine($"{pais.Key} - {pais.Value}");
-}
 
-var texto = new string[]{
-    "Meu",
-    "Código",
-    "Rodou",
-    "Sem",
-    "erros",
-    "para",
-    "ler",
-    "cadastros",
-    "de clientes"
-};
 
-WriteLine( "--- Índices do dicionário ---");
-WriteLine( $"A última palavra é {texto[^1]}");
-WriteLine( $"A primeira palavra é : {texto[^9]}");
 
-WriteLine("--- parte do texto ---");
-var pedacoTexto = texto[1..4];
-foreach (var p in pedacoTexto){
-    WriteLine(p);
-}
 
-//para ler de 1 a 6
-Range intervalo = 1..6;
-foreach(var p in texto[intervalo]){
-    WriteLine(p);
-}
 
-var todas = texto[..]; // todas as palavras
-WriteLine("--- primeiras 4 ---");
-var Primeiras4 = texto[..4 ]; // primeiras 4 palavras
-foreach ( var p in Primeiras4)
-{
-WriteLine(p);
-}
 
-// Para ter as 4 últimas palavras
 
-WriteLine("--- últimas 4 ---");
-var Ultimas4 = texto[5 ..]; // 4 últimas pelo índice 5
-foreach ( var p in Ultimas4)
-{
-WriteLine(p);
-}
-ReadLine();
 
 ReadLine();
