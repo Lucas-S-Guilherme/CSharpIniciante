@@ -6,6 +6,8 @@ System.Console.WriteLine("O que você quer testar?" +
 "\n 2 - Métodos com Parâmetros opcionais" +
 "\n 3 - Dicionário" +
 "\n 4 - Delegate Func <>" +
+"\n 5 - Delegate Func<> com Coleções" +
+"\n 6 - Testar função normal e com Delegate Func<>" +
 "\n\n Digite uma opção");
 
 int opcao;
@@ -49,7 +51,37 @@ switch (opcao) {
 
     break;
 
+    case 5:
+
+        int anoAtual = DateTime.Today.Year;
+
+        //Fórmula: média de km rodados por ano
+        Func<int, double, double> CalculoKmPorAno = (ano, km) => ano >= anoAtual ? km : km/(anoAtual - ano);
+
+        //carrega lista de carros
+        var dados = Carro.Get();
+
+        //looping para varrer todos os carros da lista
+        dados.ForEach(x => {
+            var kmPorAno = CalculoKmPorAno(x.AnoFabricacao, x.KmRodados);
+            WriteLine($"{x.Modelo} | ano: {x.AnoFabricacao} | km: {x.KmRodados:n0} | litros {x.Litros} | km/ano: {kmPorAno:n0}");
+        });
+
+
+        break;
+
+    case 6:
     
+    System.Console.WriteLine("Digite um número X que queira calcular o seu Quadrado:");
+    double x = Convert.ToDouble(Console.ReadLine());
+    System.Console.WriteLine($"Calculando com a função, O quadrado do número {x} é : {Teste.Square(x)}");
+
+    Func<double, double> SquareFuncLamb = (x) => x * x;
+    
+    System.Console.WriteLine($"Calculando com a função, O quadrado do número {x} é : {SquareFuncLamb(x)}");
+    break;
+
+
     
 
 }

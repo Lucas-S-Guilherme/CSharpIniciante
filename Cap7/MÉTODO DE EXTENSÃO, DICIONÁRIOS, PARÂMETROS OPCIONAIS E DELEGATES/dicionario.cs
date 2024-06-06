@@ -1,3 +1,4 @@
+using System.Security.Cryptography.X509Certificates;
 using static System.Console;
 
 public static class DicionarioMeu {
@@ -83,6 +84,9 @@ public static class DicionarioMeu {
         {
         WriteLine(p);
         }
+
     } 
+
+    
 
 }

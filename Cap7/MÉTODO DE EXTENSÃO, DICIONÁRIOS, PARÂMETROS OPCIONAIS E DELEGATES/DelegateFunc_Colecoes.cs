@@ -8,14 +8,14 @@ public class Carro{
     public string Modelo {get; set;}
     public int Litros { get; set;}
     public double KmRodados {get; set;}
-    public double AnoFabricacao {get; set;}
+    public int AnoFabricacao {get; set;}
     public string Cor {get; set;}
 
     public double Consumo() => KmRodados / Litros;
 
     public string ConsumoString() => Litros > 0 ? $"{Consumo():n2}" : "----";
     
-    public int Idade() => (int)(DateTime.Today.Year - AnoFabricacao);
+    public int Idade() => (DateTime.Today.Year - AnoFabricacao);
     
     public override string ToString () => $"{ID} - {Modelo}";
 
