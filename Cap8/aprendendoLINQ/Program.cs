@@ -1,0 +1,4 @@
+﻿
+SintaxeConsulta.RetornaConsulta();
+SintaxeMetodo.RetornaConsultaMetodo();
+
