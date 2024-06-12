@@ -17,10 +17,12 @@ public static class OperadorWhere{
         //filtro de pessoas que contém nome Silva
         var pessoasFiltradas = pessoas.Where(p => p.Contains("Almeida"));
 
+        System.Console.WriteLine("\n\nTestando Operador Where");
+        
         //iteração com pessoas filtradas
         foreach (var pessoa in pessoasFiltradas)
         {
-            System.Console.WriteLine("pessoa");
+            System.Console.WriteLine(pessoa);
             
         }
 
